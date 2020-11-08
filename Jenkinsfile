@@ -13,7 +13,7 @@ pipeline {
  }
  post {
   success {
-   sendNotificationToCDDCall()
+   sendNotificationToDILCall()
   }
  }
 }
