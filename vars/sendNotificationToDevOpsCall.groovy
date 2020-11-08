@@ -52,7 +52,7 @@ String getLastSuccessfulCommit() {
 void sendNotificationToDevOps() {
  echo '----------Sending Build Notification to DEVOPS--------------'
  echo "Environment variables: GIT_URL: [$env.GIT_URL], GIT_BRANCH: [$env.GIT_BRANCH], BRANCH_NAME: [$env.BRANCH_NAME], GIT_LOCAL_BRANCH: [$env.GIT_LOCAL_BRANCH], DEVOPS_APPLICATION_NAME: [${DEVOPS_APPLICATION_NAME}], DEVOPS_APPLICATION_VERSION: [${DEVOPS_APPLICATION_VERSION}], GIT_COMMIT: [${env.GIT_COMMIT}], GIT_PREVIOUS_SUCCESSFUL_COMMIT: [${env.GIT_PREVIOUS_SUCCESSFUL_COMMIT}]"
- sendNotificationToDevOps useSourceCodeRepositoryNameAsApplicationName: true,
+ sendNotificationToCDDirector useSourceCodeRepositoryNameAsApplicationName: true,
   appName: "${DEVOPS_APPLICATION_NAME}",
   useSourceCodeRepositoryBranchNameAsApplicationVersionName: true,
   appVersion: "${DEVOPS_APPLICATION_VERSION}",
