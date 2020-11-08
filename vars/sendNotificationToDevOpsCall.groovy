@@ -1,7 +1,7 @@
 def call() {
  try {
   environmentSetUp()
-  sendNotificationToDEVOPSirector()
+  sendNotificationToDevOps()
   processDEVOPSReleases(evaluate("${currentBuild.description}"))
  } catch (ex) {
   echo "Exception occurred. Skipping notification to DEVOPS. Error is [" + ex.toString() + "]"
@@ -49,10 +49,10 @@ String getLastSuccessfulCommit() {
  return lastSuccessfulHash
 }
 
-void sendNotificationToDEVOPSirector() {
+void sendNotificationToDevOps() {
  echo '----------Sending Build Notification to DEVOPS--------------'
  echo "Environment variables: GIT_URL: [$env.GIT_URL], GIT_BRANCH: [$env.GIT_BRANCH], BRANCH_NAME: [$env.BRANCH_NAME], GIT_LOCAL_BRANCH: [$env.GIT_LOCAL_BRANCH], DEVOPS_APPLICATION_NAME: [${DEVOPS_APPLICATION_NAME}], DEVOPS_APPLICATION_VERSION: [${DEVOPS_APPLICATION_VERSION}], GIT_COMMIT: [${env.GIT_COMMIT}], GIT_PREVIOUS_SUCCESSFUL_COMMIT: [${env.GIT_PREVIOUS_SUCCESSFUL_COMMIT}]"
- sendNotificationToDEVOPS useSourceCodeRepositoryNameAsApplicationName: true,
+ sendNotificationToDevOps useSourceCodeRepositoryNameAsApplicationName: true,
   appName: "${DEVOPS_APPLICATION_NAME}",
   useSourceCodeRepositoryBranchNameAsApplicationVersionName: true,
   appVersion: "${DEVOPS_APPLICATION_VERSION}",
@@ -73,7 +73,7 @@ void sendNotificationToDEVOPSirector() {
  echo '----------Jenkins Pipeline completed successfully--------------'
 }
 
-void processDEVOPSReleases(Map devopsReleaseMap) {
+void processDevOpsReleases(Map devopsReleaseMap) {
  if (devopsReleaseMap) {
   echo '----------Process DEVOPS Releases--------------'
   devopsReleaseMap.eachWithIndex {
