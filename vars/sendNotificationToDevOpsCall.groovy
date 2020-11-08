@@ -14,7 +14,7 @@ void environmentSetUp() {
  env.DEVOPS_SERVER_NAME = "cddirector.io"
  env.DEVOPS_SERVER_PORT = "443"
  env.DEVOPS_TENANT_ID = "17827b55-3a42-403f-b1f8-9655d7e625bb"
- echo "DEVOPS_TENANT_ID: [$env.DEVOPS_TENANT_ID]
+ echo "DEVOPS_TENANT_ID: [$env.DEVOPS_TENANT_ID]"
  env.DEVOPS_USE_SSL = true
  env.DEVOPS_APPLICATION_NAME = "${env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')}"
  env.DEVOPS_APPLICATION_VERSION = "$env.BRANCH_NAME"
@@ -53,7 +53,7 @@ String getLastSuccessfulCommit() {
 void sendNotificationToDevOps() {
  echo '----------Sending Build Notification to DEVOPS--------------'
  echo "Environment variables: GIT_URL: [$env.GIT_URL], GIT_BRANCH: [$env.GIT_BRANCH], BRANCH_NAME: [$env.BRANCH_NAME], GIT_LOCAL_BRANCH: [$env.GIT_LOCAL_BRANCH], DEVOPS_APPLICATION_NAME: [${DEVOPS_APPLICATION_NAME}], DEVOPS_APPLICATION_VERSION: [${DEVOPS_APPLICATION_VERSION}], GIT_COMMIT: [${env.GIT_COMMIT}], GIT_PREVIOUS_SUCCESSFUL_COMMIT: [${env.GIT_PREVIOUS_SUCCESSFUL_COMMIT}]"
- echo "DEVOPS_TENANT_ID: [${DEVOPS_TENANT_ID}]
+ echo "DEVOPS_TENANT_ID: [${DEVOPS_TENANT_ID}]"
  sendNotificationToCDD useSourceCodeRepositoryNameAsApplicationName: true,
   appName: "${DEVOPS_APPLICATION_NAME}",
   useSourceCodeRepositoryBranchNameAsApplicationVersionName: true,
