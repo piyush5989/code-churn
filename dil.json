@@ -1,0 +1,98 @@
+{
+	"objects": [
+		{
+			"kind": "Application",
+			"name": "${DIL_REPOSITORY_NAME}"
+		},
+		{
+			"kind": "ApplicationVersion",
+			"name": "${DIL_REPOSITORY_BRANCH}",
+			"application": "Local|${DIL_REPOSITORY_NAME}"
+		},
+		{
+			"kind": "Environment",
+			"name": "${DIL_ENVIRONMENT_NAME}",
+			"applications": [
+				"Local|${DIL_REPOSITORY_NAME}"
+			],
+			"isProduction": false
+		},
+		{
+			"kind": "Endpoint",
+			"name": "${DIL_REPOSITORY_NAME}",
+			"plugin": "${DIL_SOURCE_CONTROL_TYPE}/${GITHUB_PLUGIN_VERSION}",
+			"type": "${DIL_SOURCE_CONTROL_TYPE}",
+			"parameters": {
+				"url": "${DIL_SOURCE_CONTROL_URL}",
+				"owner": "${DIL_REPOSITORY_OWNER}",
+				"username": "${DIL_REPOSITORY_USERNAME}",
+				"password": "${DIL_REPOSITORY_PASSWORD}"
+			},
+			"environments": [
+				"${DIL_ENVIRONMENT_NAME}"
+			]
+		},
+		{
+			"kind": "CommitSource",
+			"name": "${DIL_REPOSITORY_NAME}_commitSource",
+			"plugin": "${DIL_SOURCE_CONTROL_TYPE}/${GITHUB_PLUGIN_VERSION}",
+			"endpoint": "${DIL_REPOSITORY_NAME}",
+			"application": "Local|${DIL_REPOSITORY_NAME}",
+			"type": "Get Commit Messages",
+			"parameters": {
+				"owner": "${DIL_REPOSITORY_OWNER}",
+				"repository": "${DIL_REPOSITORY_NAME}"
+			},
+			"commitRegularExpression": "^[ \\\\t]*([A-Za-z0-9_-]+)"
+		},
+		{
+			"kind": "Release",
+			"name": "${DIL_REPOSITORY_NAME}",
+			"version": "${DIL_REPOSITORY_BRANCH}",
+			"applicationVersions": [
+				"Local|${DIL_REPOSITORY_NAME}/${DIL_REPOSITORY_BRANCH}"
+			],
+			"isReplaceApplicationVersionOnChangeNotification": false,
+			"markAsDonePhaseName": "",
+			"runOnCreation": false
+		}
+	],
+	"parameters": [
+		{
+			"name": "DIL_SOURCE_CONTROL_TYPE",
+			"value": "GitHub"
+		},
+		{
+			"name": "DIL_SOURCE_CONTROL_URL",
+			"value": "https://api.github.com"
+		},
+		{
+			"name": "DIL_REPOSITORY_OWNER",
+			"value": "rally1-rallydev"
+		},
+		{
+			"name": "DIL_REPOSITORY_NAME",
+			"value": "code-churn"
+		},
+		{
+			"name": "DIL_REPOSITORY_BRANCH",
+			"value": "main"
+		},
+		{
+			"name": "DIL_REPOSITORY_USERNAME",
+			"value": "rally1.rallydev@gmail.com"
+		},
+		{
+			"name": "DIL_REPOSITORY_PASSWORD",
+			"value": "interOP@123interOP@123interOP@123"
+		},
+		{
+			"name": "DIL_ENVIRONMENT_NAME",
+			"value": "DEV"
+		},
+		{
+			"name": "GITHUB_PLUGIN_VERSION",
+			"value": "1.0.3"
+		}
+	]
+}
