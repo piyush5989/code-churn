@@ -60,7 +60,7 @@ void sendNotificationToDevOps() {
   appVersion: "${DEVOPS_APPLICATION_VERSION}",
   gitCommit: "${DEVOPS_GIT_COMMIT_ID}",
   gitPrevSuccessfulCommit: "${DEVOPS_PREVIOUS_GIT_COMMIT_ID}",
-  overrideDEVOPSConfig: [
+  overrideCDDConfig: [
    customApiKey: "${DEVOPS_API_KEY}",
    customProxyPassword: '',
    customProxyUrl: '',
