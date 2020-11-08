@@ -2,7 +2,7 @@ def call() {
  try {
   environmentSetUp()
   sendNotificationToDevOps()
-  processDEVOPSReleases(evaluate("${currentBuild.description}"))
+  processDevOpsReleases(evaluate("${currentBuild.description}"))
  } catch (ex) {
   echo "Exception occurred. Skipping notification to DEVOPS. Error is [" + ex.toString() + "]"
  }
