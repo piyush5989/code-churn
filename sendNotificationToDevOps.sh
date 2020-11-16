@@ -8,8 +8,8 @@ export DEVOPS_API_KEY="eyJhbGciOiJIUzUxMiJ9.eyJ1c2VybmFtZSI6InJhbGx5MS5yYWxseWRl
 
 export GIT_URL=https://github.com/rally1-rallydev/code-churn.git
 export GIT_BRANCH=main
-export GIT_COMMIT=73209a3348f40a71bbc42a208db81d065980bd11
-export GIT_PREVIOUS_SUCCESSFUL_COMMIT=73209a3348f40a71bbc42a208db81d065980bd11
+export GIT_COMMIT=ca7f937abdf97ae18a75253c279dd167fdff527d
+export GIT_PREVIOUS_SUCCESSFUL_COMMIT=ca7f937abdf97ae18a75253c279dd167fdff527d
 
 export DIL_REPOSITORY_NAME=`echo $GIT_URL | sed 's/^.*\/\(.*\).git$/\1/'`
 export DIL_REPOSITORY_BRANCH=$GIT_BRANCH
