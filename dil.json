@@ -32,6 +32,21 @@
 				"${DIL_ENVIRONMENT_NAME}"
 			]
 		},
+                {
+                        "kind": "Endpoint",
+			"name": "${DIL_REPOSITORY_NAME}",
+                        "plugin": "${DIL_CONTENT_SOURCE_TYPE}/${RALLY_PLUGIN_VERSION}",
+                        "type": "${DIL_CONTENT_SOURCE_TYPE}",
+                        "parameters": {
+                                "url": "${DIL_CONTENT_DATA_SOURCE_URL}",
+                                "workspace": "${DIL_CONTENT_DATA_SOURCE_WORKSPACE}",
+                                "apikey": "${DIL_CONTENT_DATA_SOURCE_API_KEY}",
+                                "useProxy": "false"
+                        },
+                        "environments": [
+				"${DIL_ENVIRONMENT_NAME}"
+                        ]
+                },
 		{
 			"kind": "CommitSource",
 			"name": "${DIL_REPOSITORY_NAME}_commitSource",
@@ -45,6 +60,14 @@
 			},
 			"commitRegularExpression": "^[ \\\\t]*([A-Za-z0-9_-]+)"
 		},
+                {
+                        "kind": "ContentSource",
+			"name": "${DIL_REPOSITORY_NAME}_contentSource",
+                        "plugin": "${DIL_CONTENT_SOURCE_TYPE}/${RALLY_PLUGIN_VERSION}",
+			"endpoint": "${DIL_REPOSITORY_NAME}",
+			"application": "Local|${DIL_REPOSITORY_NAME}",
+                        "type": "Add Content"
+                },
 		{
 			"kind": "Release",
 			"name": "${DIL_REPOSITORY_NAME}",
@@ -61,6 +84,10 @@
 		{
 			"name": "DIL_SOURCE_CONTROL_TYPE",
 			"value": "GitHub"
+		},
+		{
+			"name": "DIL_CONTENT_SOURCE_TYPE",
+                        "value": "Rally®"
 		},
 		{
 			"name": "DIL_SOURCE_CONTROL_URL",
@@ -84,7 +111,19 @@
 		},
 		{
 			"name": "DIL_REPOSITORY_PASSWORD",
-			"value": "interOP@123interOP@123interOP@123"
+			"value": "5db5aca42ad7cdfe6afb23c9c53d6dc4e9961542"
+		},
+		{
+			"name": "DIL_CONTENT_DATA_SOURCE_URL",
+                        "value": "https://rally1.rallydev.com"
+		},
+		{
+			"name": "DIL_CONTENT_DATA_SOURCE_WORKSPACE",
+                        "value": "CA Technologies"
+		},
+		{
+			"name": "DIL_CONTENT_DATA_SOURCE_API_KEY",
+                        "value": "_7qWinSImQ3ePVezdZdPVdal2hb91014lM6lH4oStME"
 		},
 		{
 			"name": "DIL_ENVIRONMENT_NAME",
@@ -93,6 +132,10 @@
 		{
 			"name": "GITHUB_PLUGIN_VERSION",
 			"value": "1.0.3"
+		},
+		{
+			"name": "RALLY_PLUGIN_VERSION",
+			"value": "2.18"
 		}
 	]
 }
