@@ -28,6 +28,7 @@ void getAPIKeyFromCredentials() {
   currentBuild.rawBuild, null
  );
  env.DEVOPS_API_KEY = credentials.secret
+ echo '----------Returning API Key from Creds: DEVOPS_API_KEY--------------'
 }
 
 void setGitEnvironmentVariables() {
@@ -37,6 +38,7 @@ void setGitEnvironmentVariables() {
 }
 
 String getLastSuccessfulCommit() {
+ echo '----------Start getLastSuccessfulCommit--------------'
  String lastSuccessfulHash = null
  def lastSuccessfulBuild = currentBuild.rawBuild.getPreviousSuccessfulBuild()
  println "Previous Successful Build: [$lastSuccessfulBuild]"
