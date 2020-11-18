@@ -9,7 +9,7 @@ def call() {
 }
 
 void environmentSetUp() {
- getAPIKeyFromCredentials()
+ //getAPIKeyFromCredentials()
  setGitEnvironmentVariables()
  env.DEVOPS_SERVER_NAME = "cddirector.io"
  env.DEVOPS_SERVER_PORT = "443"
